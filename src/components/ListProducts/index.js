@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import "./ListProducts.css";
+import { useDispatch } from "react-redux";
+import { add } from "../../actions/cart";
 
 var ListProducts = () => {
+  const calling = useDispatch();
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch("https://dummyjson.com/products")
@@ -28,22 +31,15 @@ var ListProducts = () => {
             <div className="discountPercentage">
               Giảm giá: {Math.round(item.discountPercentage)}%
             </div>
-            <button>Thêm vào giỏ hàng</button>
+            <button
+              onClick={() => {
+                calling(add(item));
+              }}
+            >
+              Thêm vào giỏ hàng
+            </button>
           </div>
         ))}
-        {/* <div className="item">
-          <div className="outer-img">
-            <img
-              src="https://vcdn1-vnexpress.vnecdn.net/2025/06/03/a1-1748923961-2339-1748924035.jpg?w=460&h=0&q=100&dpr=2&fit=crop&s=DDYZe3gYi37m0qbeSVclDw"
-              alt="product"
-            />
-          </div>
-          <div className="title">Iphone 17</div>
-          <div className="real-price">$483</div>
-          <div className="original-price">$520</div>
-          <div className="discountPercentage">Giảm giá: 20%</div>
-          <button>Thêm vào giỏ hàng</button>
-        </div> */}
       </div>
     </>
   );
