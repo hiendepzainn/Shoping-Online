@@ -1,0 +1,49 @@
+h2 {
+  margin-left: 15px;
+}
+
+.list-products {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list-products .item {
+  width: 17%;
+  background-color: antiquewhite;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 13px;
+  margin-bottom: 12px;
+}
+
+.list-products .item .outer-img {
+  width: 100%;
+}
+
+.list-products .item .outer-img img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.list-products .item .title {
+  font-weight: 700;
+  margin: 5px 0px 15px;
+  font-size: 18.5px;
+  height: 45px;
+}
+
+.list-products .item .real-price {
+  color: rgb(45, 176, 19);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.list-products .item .original-price {
+  text-decoration: line-through;
+  font-size: 15px;
+}
+
+.list-products .item .discountPercentage {
+  font-size: 15px;
+}
