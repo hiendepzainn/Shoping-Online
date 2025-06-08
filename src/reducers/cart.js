@@ -21,15 +21,31 @@ var cartReducer = (state = [], action) => {
   }
 
   if (action.type === "DECREASE") {
+    let newArray = [...state];
+    let findObject = newArray.find((x) => x.id === action.id);
+    if (findObject.quantity > 1) {
+      findObject.quantity--;
+      return newArray;
+    } else {
+      let filtered = state.filter((item) => item.id !== action.id);
+      return filtered;
+    }
   }
 
   if (action.type === "INCREASE") {
+    let newArray = [...state];
+    let findObject = newArray.find((x) => x.id === action.id);
+    findObject.quantity++;
+    return newArray;
   }
 
   if (action.type === "DELETE") {
+    let newArray = state.filter((item) => item.id !== action.id);
+    return newArray;
   }
 
   if (action.type === "DELETEALL") {
+    return [];
   }
   return state;
 };
